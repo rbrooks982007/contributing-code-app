@@ -1,0 +1,26 @@
+  <%= render  :partial => "partials/content/home"%>
+  <%= render  :partial => "partials/content/bootcamp"%>
+  <%= render  :partial => "partials/content/rules"%>
+  <%= render  :partial => "partials/content/schedule"%>
+  <%= render  :partial => "partials/content/venue"%>
+  <%= render  :partial => "partials/content/prizes"%>
+  <%= render  :partial => "partials/main/my_team"%>
+  <%= render  :partial => "partials/main/teams"%>
+
+
+<% if (params[:action] == "create" || params[:action] == "create_user")&& current_user.blank? %>
+  <% if @users.length < 300 %>
+    <%= render :partial => "users/new" %>
+  <% else %>
+     <%= render :partial => "users/registration_closed" %>
+  <% end %>
+<% end %>
+<% if current_user && (current_user.tee.blank? || current_user.transport.blank? || current_user.gender.blank?) %>
+ <%= render  :partial => "users/user_info"%>
+ <%= content_for :js do %>
+   var open="1"
+ <% end %> 
+<% elsif current_user %>
+  <%= render  :partial => "users/user_info"%>
+<% end %>
+  

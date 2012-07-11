@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>#ContributingCode Sprint - July 13th to July 28th, 2012</title>
+  <link rel="image_src" 
+      type="image/jpeg" 
+      href="/assets/logo.png" />
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+  <![endif]-->
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='http://fonts.googleapis.com/css?family=Andada' rel='stylesheet' type='text/css'>
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32981232-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body>
+  <%= render  :partial => "partials/side_icons" %>
+
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="/"><img src="<%= image_path 'logo_mini_+vmware.png' %>"></a>
+        <div class='pull-right'>
+          <ul class="nav">
+            <li><a href="/faq"  style="color:#0072C5;" target="_blank">FAQ's  </a></li>
+            <% if current_user %>
+              <% if current_user.team.blank? %>
+                <li><a data-toggle="modal" style="color:#0072C5;" href="#addReqModal" >Requests <span class="notification"><%= @add_reqs.length %></span></a ></li>
+              <% end %>
+              <% if current_user.owned_team.present? && @requests.length > 0 && current_user.owned_team.member_count < 4 %>
+                <li><a  data-toggle="modal" style="color:#0072C5;" href="#pendingJoinReqModal" ><span class="notification"><%= @requests.length %></span></a></li>
+              <% end %>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" style="color:#0072C5;" data-toggle="dropdown">
+                  <%= current_user.name %>
+                  <b class="caret" style="border-top-color:#0072C5;"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <!-- <li><a href='/profile/'><i class='icon-user icon-space-r'></i>Profile</a></li> -->
+                  <li><a data-toggle="modal" href="#userModal" ><i class='icon-user icon-space-r'></i> Profile</a></li>
+                  <li>
+                    <a href="/logout">
+                      <i class='icon-off icon-space-r'></i> Logout
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            <% else %>
+              <li><a href="/auth/github" style="color:#0072C5;" class="dropdown-toggle">Sign-in/Register with Github</a></li>
+            <% end %> 
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <%= render  :partial => "partials/share_buttons" %>
+      <div class="span12" >
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+
+<script>
+var $my_form =  $("#team_form")
+$my_form.validate( self, self.onteam_formSubmit )
+var $my_form1 =  $("#register_form")
+$my_form1.validate( self, self.onregister_formSubmit)
+var $my_form2 =  $("#add2_form")
+$my_form2.validate( self, self.onadd2_formSubmit)
+var $my_form3 =  $("#user_info_form")
+$my_form3.validate( self, self.onuser_info_formSubmit)
+
+<%= yield(:js) %>
+</script>
+
+</body>
+</html>
+
+

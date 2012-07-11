@@ -1,0 +1,80 @@
+<div class="modal hide" id="myModal" >
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">×</button>
+    <h3>Please Complete the form to finish the registration </h3>
+  </div>
+  <div class="modal-body">
+    <%= form_tag users_path , :class => "formset",  :name => "register_form", :id=>"register_form", :method => "post" %>
+    <div class="row-fluid">
+      <div class="span8">
+        <div class="control-group">
+          <%= label_tag :FirstName, "Name", :class => "control-label blue" %>
+          <div class="controls">
+            <%= text_field_tag(:name,@name, :"data-rules"=> "required|max_length[16]",  :"data-name" =>"name", :class => "validate input-xlarge") %>
+            <p class="help-block">Please fill out your full name.</p>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= label_tag :Email, nil, :class => "control-label blue" %>
+          <div class="controls">
+            <%= text_field_tag(:email,@email, :class => "validate input-xlarge", :"data-rules"=> "required|valid_email", :"data-display"=>"Email", :"data-name" =>"email" ) %>
+            <p class="help-block">Email will only be used for the sprint.</p>
+          </div>
+        </div>
+      </div>
+      <div class="span4">
+        <div class="control-group">
+          Github : <a class="small-avatar" href="http://github.com/<%= @handle %>" target="_blank"><%= @handle %></a>
+          <div class="controls">
+            <a href="http://github.com/<%= @handle %>" target="_blank"><img src='<%= @avatar %>'></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="row-fluid">
+      <div class="span4">
+        <div class="control-group">
+          <div class="controls">
+            <p class="blue"> Choose your Shirt size</p>
+            <ul style="list-style-type: none;">
+              <li><%= radio_button_tag(:tee, "S") %> S</li>
+              <li><%= radio_button_tag(:tee, "M",:html=>{:checked=>true})%> M</li>
+              <li><%= radio_button_tag(:tee, "L") %> L</li>
+              <li><%= radio_button_tag(:tee, "XL") %> XL</li>
+              <li><%= radio_button_tag(:tee, "XXL") %> XXL</li>
+            </ul>
+          </div>
+        </div>
+      </div>  
+      <div class="span6">
+          <div class="control-group">
+          <div class="controls">
+            <p class="blue">Gender</p>
+            <ul style="list-style-type: none;"><li><%= radio_button_tag(:gender, "F") %> F</li>
+            <li><%= radio_button_tag(:gender, "M",:html=>{:checked=>true})%> M</li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <p class="blue"> Choose your mode of transport</p>
+        <ul style="list-style-type: none;">
+          <li><%= radio_button_tag(:transport, "0") %> I need a shuttle to parcmerced intern housing</li>
+          <li><%= radio_button_tag(:transport, "1")%> I need a shutle to the Caltrain station</li>
+          <li><%= radio_button_tag(:transport, "2",:html=>{:checked=>true}) %> I do not need a shuttle</li>
+          <li>* An email on shuttle service will be sent once registrations are over</li>
+        </ul>
+        
+    </div>
+  </div>
+  <div class="modal-footer">
+    <div class="clearfix">
+      <div class="input">
+        <a href="#" class="btn" data-dismiss="modal">Close</a>
+        <%= submit_tag "Register", :class => "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div>

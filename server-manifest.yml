@@ -1,0 +1,18 @@
+---
+applications:
+  .:
+    name: contributingcode
+    framework:
+      name: rails3
+      info:
+        mem: 256M
+        description: Rails Application
+        exec: 
+    url: ${name}.${target-base}
+    mem: 1G
+    instances: 1
+    services:
+      ccdb:
+        type: mysql
+      ccq:
+        type: redis

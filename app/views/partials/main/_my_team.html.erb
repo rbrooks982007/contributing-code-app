@@ -1,0 +1,24 @@
+<div class="myteam content_pos">
+  <div class="hero-unit">
+  <% if @current_user %>
+    <% if @is_member.blank? %>
+      <div class="row-fluid">
+        <div class="span6">
+          <h1>Create team</h1>
+          <%= render  :partial => "partials/myteam/create_team"%>
+          <%= render  :partial => "partials/myteam/add_req_list"%>
+        </div>
+        <div class="span6">
+          <h1>Join team</h1>
+          <%= render  :partial => "partials/myteam/select_team"%>
+        </div>
+      </div>
+    <% else %>
+      <%= render :partial => "partials/myteam/team_details" %>
+    <% end %>
+  <% else %>
+    <%= render :partial => "partials/myteam/dummy" %>
+  <% end %>
+</div>
+</div>
+

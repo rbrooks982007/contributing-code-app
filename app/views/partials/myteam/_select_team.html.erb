@@ -1,0 +1,30 @@
+<!-- Modal to display message after join request -->
+<div class="modal hide" id="joinModal">
+  <div class="modal-body">
+    <p id="join_message"></p>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal">Close</a>
+  </div>
+</div>
+
+<!-- Display teams to join  -->
+<div style="height:500px;overflow:scroll;">    
+  <% @teams.each do |team| %>
+    <% if team.member_count < 4 %>
+      <div class="row-fluid space_top">
+        <div class="span3">    
+          <img class ="small-avatar" src="<%= team.image_url %>">
+        </div>
+        <div class="span4">
+          <h2><%= team.name %></h2>
+          <%  if @requested_teams.include?(team.id) %>
+           <span class="light space_top"> Request pending </span>
+          <% else %>
+            <a href= '<%= join_team_path(team) %>' class="btn selectTeam" style="margin-top:10px;"> Join </a>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

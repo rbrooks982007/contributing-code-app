@@ -1,0 +1,48 @@
+<div class="contributors content_pos">
+  <%-if @users.count > 0 %>
+      <h2 style="text-align:center;font-weight:500;">Contributors</h2>
+    <div id="contributorsCarousel" class="carousel slide space_top">
+      <div class="carousel-inner">
+        <% i=0 %>
+        <%-@users.each_with_index do |user, index| %>
+          <% if i%7==0 %>
+            <div class="item">
+              <div style="width:800px;heigth:100px;margin-left:100px; margin-right:100px">
+          <% end %>
+          <div style="float: left;margin:10px">
+            <a href="http://github.com/<%= user.handle %>" target="_blank">
+              <img class='contributor-avatar' src = "<%=user.avatar%>">
+            </a>
+            <div style="font-size:11px;width:72px;height:11px;margin-top:5px;text-align:center;"><a href="http://github.com/<%= user.handle %>" target="_blank"><%= user.name %></a></div>
+          </div>
+          <% if i%7==6|| i==@users.length-1%>
+              </div>
+             </div>
+          <% end %>            
+          <% i = i+1 %>
+        <%-end%>
+      </div>
+      <a class="carousel-control left" href="#contributorsCarousel" data-slide="prev">&lsaquo;</a>
+      <a class="carousel-control right" href="#contributorsCarousel" data-slide="next">&rsaquo;</a>
+    </div>
+  <% end %>
+
+  <div class="logos" style="padding-top:100px;">
+    <h2 style="text-align:center;font-weight:500;">Participating organizations</h2>
+    <div class="row-fluid space_top">
+      <div class="span3">
+      </div>
+      <div class="span2">
+        <a href="http://codeforamerica.org/" target="_blank"><img style="align:center;" src="http://codeforamerica.org/wp-content/uploads/2011/12/CfA_logo-300x120.png"></a>
+      </div>
+      <div class="span2">
+        <a href="http://socialcoding4good.org/" target="_blank">
+        <img style="align:center;" src="http://socialcoding4good.org/sites/default/files/Logos-15.png"></a>
+      </div>
+      <div class="span2">
+        <a href="https://github.com/" target="_blank">
+        <img style="align:center;" src="http://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/GitHub.svg/567px-GitHub.svg.png"></a>
+      </div>
+    </div>
+  </div>
+</div>

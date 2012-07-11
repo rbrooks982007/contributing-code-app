@@ -1,0 +1,24 @@
+<div class="home content_pos">
+    <div class="hero-unit" style="height:440px;">
+      <div align="center">
+          <img id = "logo" src="<%= image_path 'logo.png' %>">
+      </div>
+        <hr>
+        <p style="font-size:20px;">Students #ContributingCode is a team competition for <span class="bold">students</span> in the Palo Alto, CA area which will be held during the last two weeks of July 2012.</p>
+        <p style="font-size:20px;">Your mission, should you choose to accept it, is to volunteer your unique talents and creativity on a two week long sprint.
+          Don't worry if this is your first coding competition or you have never coded. The <a href="https://twitter.com/#!/cloudfoundry" target="_blank">@CloudFoundry</a>
+          Developer Relations team will provide <a href="#bootcamp">training</a> showing you everything you need to get started.
+        </p>
+
+        <p style="font-size:20px;">For your hard work, we will provide <span class="p"><a href="#prizes">prizes</a></span>, food and giveaways.
+        You won't regret coming even if you don't win. This is a great social and intellectual extra-curricular activity.
+        </p>
+      <%-unless @is_member %>
+          <h3>Act Fast</h3>
+          <hr />
+          <p style="font-size:20px;">The contest runs from July 13th - July 28th, 2012</p>
+        <span class="m"><a href="<%= current_user ? '#myteam' : '/auth/github' %>" class="btn btn-large btn-primary bw">Get Started</a></span>
+      <%-end%>
+    </div>
+  <%= render  :partial => "partials/main/contributors"%>
+</div>

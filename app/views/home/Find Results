@@ -1,0 +1,21 @@
+Searching 387 files for "header_mini"
+
+0 matches across 0 files
+
+
+Searching 326 files for "header_mini"
+
+/Users/magizharasuthirunavukkarasu/newmerge/contributingcode/app/assets/stylesheets/site.css:
+  127  
+  128  .navbar-inner {
+  129:   background: url('/assets/header_mini2.png');
+  130    height: 59px;
+  131    box-shadow: none;
+  ...
+  187  
+  188  .table-bordered th {
+  189:   background: url('/assets/header_mini.png');
+  190    border: none;
+  191  }
+
+2 matches in 1 file

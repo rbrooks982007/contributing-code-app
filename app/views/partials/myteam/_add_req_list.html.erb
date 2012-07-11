@@ -1,0 +1,33 @@
+<%-if current_user and @add_reqs %>
+<a class="btn" data-toggle="modal" href="#addReqModal" >Pending Requests <span class="notification"><%= @add_reqs.length %></span></a>
+
+<div class="modal hide" id="addReqModal">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">×</button>
+    <h3>Accept to join a team or Decline</h3>
+  </div>
+  <div class="modal-body" style="overflow:scroll;">
+    <% if @add_reqs.length < 1 %>
+       <h3> You dont have requests from any team right now. You can join/create a team</h3>
+    <% else %>
+    <% @add_reqs.each do |req| %>
+      <div class="row-fluid space_top">
+        <div class="span2">
+          <img class ="small-avatar" src="<%= @teams_index[req.team_id].image_url %>">
+        </div>
+        <div class="span5">
+          <h3><%= req.team_name %></h3>
+        </div>
+        <div class="span5">
+          <a href='<%= accept_add_path(req.team_id) %>' class="btn acceptTeamReq">Accept</a>
+          <a href='<%= decline_add_path(req.team_id) %>' class="btn declineTeamReq">Decline</a>      
+        </div>
+      </div>
+    <% end %>
+   <% end %>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal">Close</a>
+  </div>
+</div>
+<%-end%>

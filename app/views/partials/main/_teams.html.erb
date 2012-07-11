@@ -1,0 +1,44 @@
+<div class="teams content_pos">
+  <h1 style="text-align:center;" > Team Gallery </h1>
+  <div id="myCarousel" class="carousel slide" style="
+    padding-top: 20px;">
+    <div class="carousel-inner">
+      <% @teams.each do |team| %>
+        <div class="item">
+          <div class="row-fluid">
+            <div class="span2">
+            </div>
+            <div class= "span4" >
+              <img class="big-avatar" src = "<%= team.image_url %>">
+              <h1 style="pading-top:10px;"><%= team.name %></h1>
+              <p style="pading-top:10px;"><%= team.desc %></p>
+            </div>
+            <div class= "span6">
+              <% i = 0 %>
+              <% @team_members = team.team_members %>
+              <%- [0,1].each do |row| %>
+                <div class = "row <%= row == 1 ? 'space_top' : '' %>">
+                  <%- [0, 1].each do |col| %>
+                      <% i= i+1 %>
+                      <div class="span4">
+                        <% if @team_members.length >= i %>
+                          <% member = @team_members[(2*row) + col] %>
+                          <img class='avatar' src="<%= @members[member.user_id].avatar %>">
+                          <center><a href='<%= get_url(member.user_handle) %>'><%= member.user_handle %></a></center> 
+                          <% else %>
+                            <img class='avatar' src = "/assets/avatar_user.gif">
+                          <% end %>
+                      </div>
+                  <%- end %>
+                </div>
+              <%-end%>  
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <!-- Carousel nav -->
+    <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+  </div>
+</div>

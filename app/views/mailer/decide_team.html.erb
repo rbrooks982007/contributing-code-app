@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <style type="text/css">
+      .my_font {color: #2c9cc2; font-style:italic}
+    </style>
+  </head>
+  <body>
+    <table width="100%" style='border: 2px solid #aaa'>
+      <tr>
+        <td style='padding:5px;'></td>
+      </tr>
+      <tr>
+        <td align='center' style='font-family: Georgia; padding:10px 0 25px; font-size:26px'>
+          <%if @type == 0 %>
+            <span class="my_font"><%= @sender %></span> has declined your request to join the team <span class="my_font"><%= @team %></span>
+          <% elsif @type == 1 %>
+           <span class="my_font"> <%= @sender %></span> has accepted your request to join the team<span class="my_font"> <%= @team %></span>
+          <% elsif @type == 2 %>
+           <span class="my_font"> <%= @sender %></span> has left your team <span class="my_font">
+           <%= @team %></span>
+          <% elsif @type == 3 %>
+           <span class="my_font"> <%= @sender %></span> has removed you from the team <span class="my_font"><%= @team %>
+          <% elsif @type == 5 %>
+           <span class="my_font"> <%= @sender %></span> has accepted your invitation to join the team <span class="my_font"><%= @team %></span>
+          <% elsif @type == 6 %>
+            <span class="my_font"><%= @sender %></span> has declined your invitation to join the team <span class="my_font"><%= @team %></span>
+          <% else %>
+           <span class="my_font"> <%= @sender %> </span>has deleted the team <span class="my_font">
+           <%= @team %></span>. Please join an another team or create one.
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td align='center' style='font-family: Georgia; padding:40px 0 10px; font-size:26px; color: #42963B'>Visit <a href="http://contributingcode.cloudfoundry.com">contributingcode.cloudfoundry.com</a> for more information </td>
+      </tr>
+      <tr>
+        <td align='center'><img src="http://shapeshed.com/images/articles/cloud_foundry.jpg"></td>
+      </tr>
+      <tr>
+        <td style='padding:10px;'></td>
+      </tr>
+    </table>
+  </body>
+</html>

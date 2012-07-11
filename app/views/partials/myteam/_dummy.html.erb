@@ -1,0 +1,28 @@
+<div class="row-fluid">
+  <div class="span6">
+    <h1 style="padding:left:20px;"> About Teams </h1>
+    <div class="row-fluid space_top">
+      <div class="span9 offset1">
+        <p>
+          In order to get started the first thing you need to do is to sign in with your GitHub account.
+          Once you are signed in you can either create a new team or request to join a team.
+          If your team is not full, others can send you requests to join it.
+          </p>
+      </div>
+      <div class="span2">
+      </div>
+    </div>
+    <a href='/auth/github' class="btn btn-large btn-primary bw space_top">Get Started</a>
+  </div>
+  <div class="span6">
+    <%- [0,1].each do |row| %>
+      <div class = "row <%= row == 1 ? 'space_top' : '' %>">
+        <%- [0, 1].each do |col| %>
+          <div class="span4">
+            <img class='avatar' src = "/assets/avatar_user.gif">
+          </div>
+        <%- end %>
+      </div>
+    <%-end%>
+  </div>
+</div>

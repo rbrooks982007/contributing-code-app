@@ -1,0 +1,43 @@
+<%-if @my_team.member_count < 4 %>
+<div class="modal hide" id="addMemberModal">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">×</button>
+      <h2>Candidates to invite</h2>
+  </div>
+  <div class="modal-body" style="overflow:scroll;height:550px;">
+    <% if @candidates.length < 1%>
+      <h3 style="padding-left:20px"> No members to add</h3>
+    <% else %>
+      <%= form_tag add2_path , :name => "add2_form", :id=>"add2_form",:class => "formset", :method => "post" %>
+      <div class='control-group' style='margin-bottom:0'>
+        <%= label_tag :add_members, nil, :class => "control-label" %>
+        <div class="controls" style='margin-bottom: 10px'>
+          <%= text_field_tag(:handle, nil, "placeholder" => "Type the Github handle of user ", :"data-provide"=>"typeahead", :"data-source" => @handles , :"data-rules"=> "required",  :"data-name" =>"handle", :class=> "validate") %>
+          <p class="help-block"></p>
+        </div>
+      </div>
+      <div class="input">
+        <%= submit_tag "Add", :class => "btn" %>
+      </div>
+      <h3 class="space_top" style="align:center;">OR </h3>
+      <% @candidates.each do |user| %>
+        <div class="row-fluid space_top">
+          <div class="span2 ">
+            <img class="small-avatar " src="<%= user.avatar %>">
+          </div>
+          <div class="span4">
+            <h3><%= user.name %></h3>
+            <div>
+              <a href='<%= add_request_path(user.id) %>' class="btn addReq">Add</a>
+            </div>
+          </div>
+          <div class="span6">
+            <a href='http://github.com/<%= user.handle %>'><h3><%= user.handle %></h3></a>
+            <h3> <%= user.email %> </h3>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+<%-end %>

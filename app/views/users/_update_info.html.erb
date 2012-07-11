@@ -1,0 +1,50 @@
+<div class="modal hide" id="transportModal">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">×</button>
+    <h3>Please fill up  the appropriate fields </h3>
+  </div>
+  <div class="modal-body">
+    <%= form_tag user_path(current_user) , :class => "formset",  :name => "transport_form", :id=>"transport_form", :method => "put" %>
+    <div class="row-fluid">
+      <div class="span4">
+        <div class="control-group">
+          <div class="controls">
+            <p class="blue"> Choose your Shirt size</p>
+            <ul style="list-style-type: none;">
+              <li><%= radio_button_tag(:tee, "S") %> S</li>
+              <li><%= radio_button_tag(:tee, "M")%> M</li>
+              <li><%= radio_button_tag(:tee, "L") %> L</li>
+              <li><%= radio_button_tag(:tee, "XL") %> XL</li>
+              <li><%= radio_button_tag(:tee, "XXL") %> XXL</li>
+            </ul>
+          </div>
+        </div>
+      </div>  
+      <div class="span6">
+          <div class="control-group">
+          <div class="controls">
+            <p class="blue">Gender</p>
+            <ul style="list-style-type: none;"><li><%= radio_button_tag(:gender, "F") %> F</li>
+            <li><%= radio_button_tag(:gender, "M")%> M</li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <p class="blue"> Choose your mode of transport</p>
+      <ul style="list-style-type: none;">
+        <li><%= radio_button_tag(:transport, "0") %> I need a shuttle to parcmerced intern housing</li>
+        <li><%= radio_button_tag(:transport, "1")%> I need a shutle to the Caltrain station</li>
+        <li><%= radio_button_tag(:transport, "2") %> I do not need a shuttle</li>
+        <li>* An email on shuttle service will be sent once registrations are over</li>
+      </ul>        
+    </div>
+  </div>
+  <div class="modal-footer">
+    <div class="clearfix">
+      <div class="input">
+        <%= submit_tag "Update", :class => "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div>

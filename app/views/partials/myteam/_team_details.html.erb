@@ -1,0 +1,45 @@
+<%if @my_team.owner_id == current_user.id %>
+  <div class="hero-unit">
+  <h1>Team: <%= @my_team.name %></h1>
+    <p>You are the team owner of <strong><%= @my_team.name %></strong>. To be most successful in the #ContributingCode Sprint invite your friends to help you.</p>
+  </div>
+  <div class="row-fluid">
+    <div class="span6">
+      <%= render :partial => "partials/myteam/edit_team"%>
+    </div>
+    <div class="span6">
+      <%= render :partial => "partials/myteam/members"%>
+      <%= render :partial => "partials/myteam/join_requests"%>
+      <%= render :partial => "partials/myteam/add_members"%>
+    </div>
+  </div>
+<% else %>
+    <div class="row-fluid">
+      <div class="span6">
+        <h1><%= @my_team.name %></h1>
+        <p> <%= @my_team.desc %></p>
+        <img class="avatar" src="<%= @my_team.image_url %>"><br><br>
+        <a href='<%= leave_team_path(current_user.id) %>' class='btn btn-danger leaveTeam'>Leave team</a>
+      </div>
+      <div class="span6">
+        <h2>Team Members</h2>
+        <% i = 0 %>
+        <%- [0,1].each do |row| %>
+          <div class = "row <%= row == 1 ? 'space_top' : '' %>">
+            <%- [0, 1].each do |col| %>
+              <% i= i+1 %>
+              <div class="span4">
+                <% if @team_members.length >= i %>
+                  <% member = @team_members[(2*row) + col] %>
+                  <img class='avatar' src="<%= @members[member.user_id].avatar %>">
+                  <center><a href='<%= get_url(member.user_handle) %>'><%= member.user_handle %></a></center>
+                  <% else %>
+                    <img class='avatar' src = "/assets/avatar_user.gif">
+                  <% end %>
+              </div>
+            <%- end %>
+          </div>
+        <%-end%>
+      </div>
+    </div>
+<% end %> 

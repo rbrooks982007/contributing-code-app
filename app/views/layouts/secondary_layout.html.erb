@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>#ContributingCode Sprint - July 13th to July 28th, 2012</title>
+  <link rel="image_src" 
+      type="image/jpeg" 
+      href="/assets/logo.png" />
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+  <![endif]-->
+  <%= stylesheet_link_tag   "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='http://fonts.googleapis.com/css?family=Andada' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="/"><img src="<%= image_path 'logo_mini_+vmware.png' %>"></a>
+        <div class='pull-right'>
+         <ul class="nav">
+            <li><a href="/faq"  style="color:#0072C5;" target="_blank">FAQ's  </a></li>
+            <% if current_user %>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" style="color:#0072C5;" data-toggle="dropdown">
+                  <%= current_user.name %>
+                  <b class="caret" style="border-top-color:#0072C5;"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <!-- <li><a href='/profile/'><i class='icon-user icon-space-r'></i>Profile</a></li> -->
+                  <li><a data-toggle="modal" href="#userModal" ><i class='icon-user icon-space-r'></i> Profile</a></li>
+                  <li>
+                    <a href="/logout">
+                      <i class='icon-off icon-space-r'></i> Logout
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            <% else %>
+              <li><a href="/auth/github" style="color:#0072C5;" class="dropdown-toggle">Sign-in/Register with Github</a></li>
+            <% end %> 
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="span12" >
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+
+<% if current_user %>
+  <%= render  :partial => "users/user_info"%>
+<% end %>
+<script>
+<%= yield(:js) %>
+var $my_form =  $("#announcement_form")
+$my_form.validate( self, self.onannouncement_formSubmit )
+var $my_form3 =  $("#user_info_form")
+$my_form3.validate( self, self.onuser_info_formSubmit)
+</script>
+</body>
+</html>
+
+

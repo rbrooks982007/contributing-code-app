@@ -1,0 +1,100 @@
+<div class="content_pos">
+<h1>Admin panel</h1>
+<ul style="list-style-type:none;" class="space_top">
+<li>Registered Users - <%= @users.count %> </li>
+<li>Members - <%= @members.count %></li>
+<li>Teams - <%= @teams.count %></li>
+</ul>
+
+<h2 class="space_top">Transportation</h2>
+<ul style="list-style-type:none;" class="space_top">
+<li>To Intern housing - <%= @intern_shuttle %> </li>
+<li>To Caltrain - <%= @caltrain_shuttle %></li>
+<li>None - <%= @no_shuttle %></li>
+</ul>
+
+<h1 class="space_top"> Tee shirt info </h1>
+  <table class="table">
+  <tr>
+    <th>Gender</th>
+    <th>Size</th>
+    <th>Count</th>
+  </tr>
+  <tr>
+    <td>Male</td>
+    <td>S</td>
+    <td><%= @ms %></td>
+  </tr>
+  <tr>
+    <td>Male</td>
+    <td>M</td>
+    <td><%= @mm %></td>
+  </tr>
+  <tr>
+    <td>Male</td>
+    <td>L</td>
+    <td><%= @ml %></td>
+  </tr>
+  <tr>
+    <td>Male</td>
+    <td>XL</td>
+    <td><%= @mxl %></td>
+  </tr>
+  <tr>
+    <td>Male</td>
+    <td>XXL</td>
+    <td><%= @mxxl %></td>
+  </tr>
+  <tr>
+    <td>Female</td>
+    <td>S</td>
+    <td><%= @fs %></td>
+  </tr>
+  <tr>
+    <td>Female</td>
+    <td>M</td>
+    <td><%= @fm %></td>
+  </tr>
+  <tr>
+    <td>Female</td>
+    <td>L</td>
+    <td><%= @fl %></td>
+  </tr>
+  <tr>
+    <td>Female</td>
+    <td>XL</td>
+    <td><%= @fxl %></td>
+  </tr>
+  <tr>
+    <td>Female</td>
+    <td>XXL</td>
+    <td><%= @fxxl %></td>
+  </tr>
+</table>
+
+
+<h2 class="blue space_top">Send out an announcement </h2>
+<%= form_tag("/announcement/", :method => "post", :class => "formset",:name => "announcement_form", :id=>"announcement_form") do %>
+  <div class="control-group">
+    <div class="controls">
+      <%= label_tag(:subject, "Subject") %>
+      <%= text_field_tag(:subject,nil,:class=>"input-xlarge validate",:"data-rules"=>"required", :"data-name"=>"subject") %>
+      <p class="help-block"></p>
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+      <%= label_tag(:message,"Message") %>
+      <%= text_area_tag(:message,nil,:class=>"input-xlarge validate",:"data-rules"=>"required", :"data-name" =>"message") %>
+      <p class="help-block"></p>
+    </div>
+  </div>
+  <div class="clearfix">
+      <div class="input">
+      <%= submit_tag("Send",:class=>"btn") %>
+    </div>
+  </div>
+<% end %>
+
+
+</div>

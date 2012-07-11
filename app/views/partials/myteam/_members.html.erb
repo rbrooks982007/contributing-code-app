@@ -1,0 +1,29 @@
+<div class="general members" id="a1">
+  <h2>Team Members</h2>
+  <% i = 0 %>
+  <%- [0,1].each do |row| %>
+    <div class = "row <%= row == 1 ? 'space_top' : '' %>">
+      <%- [0, 1].each do |col| %>
+          <% i= i+1 %>
+          <div class="span4">
+            <% if @team_members.length >= i %>
+              <% member = @team_members[(2*row) + col] %>
+              <div class="tmember">
+                <% if @my_team.owner_id != member.user_id %>
+                <span class="notification del"><a href='<%= team_member_path(member.user_id) %>' class="removeMember" style="color:white;">x</a></span>
+                <% end %>
+                <img class='avatar' src="<%= @members[member.user_id].avatar %>">
+              </div>
+              <center>
+                <a href='<%= get_url(member.user_handle) %>'>
+                <%= member.user_handle %></a>  
+              </center>
+            <% else %>
+              <img class='avatar' src = "/assets/avatar_user.gif">
+              <center><a class="btn btn-warning" data-toggle="modal" href="#addMemberModal" >Add Member</a></center>
+            <% end %>
+          </div>
+        <%- end %>
+    </div>
+  <%-end%>
+</div>

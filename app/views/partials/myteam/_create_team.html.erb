@@ -1,0 +1,40 @@
+
+      <h3>Please complete with team information</h3>
+      <%= form_tag teams_path , :name => "team_form", :id=>"team_form",:class => "formset", :method => "post" ,  :multipart => true do %>
+    
+        <div class="control-group">
+          <%= label_tag :"Team Name", nil, :class => "control-label" %>
+          <div class="controls">
+            <%= text_field_tag(:name, nil, :class => "validate input-xlarge", :"data-rules" => "required|max_length[10]", :"data-display"=>"Team Name", "placeholder" => "Team name", :"data-name" =>"Team Name", :id=>"Team Name") %>
+            <p class="help-block"></p>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= label_tag :"Team Description", nil, :class => "control-label"%>
+          <div class="controls">
+          <%= text_area_tag(:desc, nil, :class => "validate input-xlarge",  :"data-rules" => "max_length[80]", :"data-name" =>"TeamDesc", :id=>"TeamDesc") %>
+            <p class="help-block"></p>
+          </div>
+        </div>
+
+
+        <div class='control-group' style='margin-bottom:0'>
+          <div class="controls">
+            <%= label_tag :"Team avatar", nil, :class => "control-label"%>
+            <img class='avatar' src = "/assets/avatar_team.gif"><br>
+            <%= file_field_tag :image, :class => "medium", :size => "30" %>
+          </div>
+        </div>
+
+        <div class='backend control-group'>
+          <p class="help-block"></p>
+        </div>      
+
+        <div class="clearfix">
+          <div class="input">
+            <%= submit_tag "Save", :class => "btn" %>
+          </div>
+        </div>
+      <% end %>
+  
