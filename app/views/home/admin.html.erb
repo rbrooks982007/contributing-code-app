@@ -97,4 +97,21 @@
 <% end %>
 
 
+<% @teams.each do |team| %>
+  <div class='space_top'>
+    <h2> <%= team.name %> </h2>
+    <ul style="list-style-type:none;">
+      <% team.team_members.each do |member| %>
+      <li><%= member.user_handle %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<ul style="list-style-type:none;" class="space_top">
+<% @users.each do |user| %>
+    <li><%= user.name %>  :  <%= user.email %></li>
+<% end %> 
+</ul>
+
 </div>
