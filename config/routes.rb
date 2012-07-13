@@ -2,6 +2,7 @@ Tumblrtv::Application.routes.draw do
 
   root :to => 'home#index'
   get "home/index" , :as => "home"
+  match '/info/' =>'home#info' 
 
   # Git hub oauth 
   match '/auth/github/callback' => 'sessions#create'

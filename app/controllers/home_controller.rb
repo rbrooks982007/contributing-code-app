@@ -56,14 +56,18 @@ class HomeController < ApplicationController
     render :layout => "secondary_layout"
   end 
 
+  def info 
+    render :layout => "secondary_layout"
+  end 
+
   # Admin pannel 
   # Only for admin
   def admin
     admins = [2,45]
     redirect_to "/" and return if current_user.nil? or !admins.include?(current_user.id)
-    @users = User.all
+    @users = User.find(:all, :order => "name")
     @members = TeamMember.all
-    @teams = Team.all
+    @teams = Team.find(:all, :order => "name")
     @ms = @users.select{|u| u.gender == "M" && u.tee =="S"}.count 
     @mm = @users.select{|u| u.gender == "M" && u.tee =="M"}.count 
     @ml = @users.select{|u| u.gender == "M" && u.tee =="L"}.count 
