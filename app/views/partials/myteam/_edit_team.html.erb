@@ -1,13 +1,10 @@
 
-<%= form_tag team_path(@my_team) , :name => "team_form", :id=>"team_form",:class => "formset", :method => "put" ,  :multipart => true do %>
+
 <div class="control-group">
   <%= label_tag :"Team Name", nil, :class => "control-label" %>
-  <div class="controls">
-    <%= text_field_tag(:name, @my_team.name, :class => " input-xlarge validate team_data", :"data-rules" => "required|max_length[10]", :"data-display"=>"Team Name", "placeholder" => "Team name", :"data-name" =>"Team Name", :id=>"Team Name") %>
-    <p class="help-block"></p>
-  </div>
+  <%= @my_team.name %>
 </div>
-
+<%= form_tag team_path(@my_team) , :name => "team_form", :id=>"team_form",:class => "formset", :method => "put" ,  :multipart => true do %>
 <div class="control-group">
   <%= label_tag :"Team Description", nil, :class => "control-label"%>
   <div class="controls">
