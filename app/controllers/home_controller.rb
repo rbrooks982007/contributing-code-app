@@ -65,22 +65,24 @@ class HomeController < ApplicationController
   def admin
     admins = [2,45]
     redirect_to "/" and return if current_user.nil? or !admins.include?(current_user.id)
-    @users = User.find(:all, :order => "name")
+    registered_ids = TeamMember.all.collect(&:user_id)
+    users = User.where(:id=>registered_ids).order(:name)
     @members = TeamMember.all
     @teams = Team.find(:all, :order => "name")
-    @ms = @users.select{|u| u.gender == "M" && u.tee =="S"}.count 
-    @mm = @users.select{|u| u.gender == "M" && u.tee =="M"}.count 
-    @ml = @users.select{|u| u.gender == "M" && u.tee =="L"}.count 
-    @mxl = @users.select{|u| u.gender == "M" && u.tee =="XL"}.count 
-    @mxxl = @users.select{|u| u.gender == "M" && u.tee =="XXL"}.count 
-    @fs = @users.select{|u| u.gender == "F" && u.tee =="S"}.count 
-    @fm = @users.select{|u| u.gender == "F" && u.tee =="M"}.count 
-    @fl = @users.select{|u| u.gender == "F" && u.tee =="L"}.count 
-    @fxl = @users.select{|u| u.gender == "F" && u.tee =="XL"}.count 
-    @fxxl = @users.select{|u| u.gender == "F" && u.tee =="XXL"}.count 
-    @intern_shuttle = @users.select{|u| u.transport == 0}.count
-    @caltrain_shuttle = @users.select{|u| u.transport == 1}.count
-    @no_shuttle = @users.select{|u| u.transport == 2}.count
+    @ms = users.select{|u| u.gender == "M" && u.tee =="S"}.count 
+    @mm = users.select{|u| u.gender == "M" && u.tee =="M"}.count 
+    @ml = users.select{|u| u.gender == "M" && u.tee =="L"}.count 
+    @mxl = users.select{|u| u.gender == "M" && u.tee =="XL"}.count 
+    @mxxl = users.select{|u| u.gender == "M" && u.tee =="XXL"}.count 
+    @fs = users.select{|u| u.gender == "F" && u.tee =="S"}.count 
+    @fm = users.select{|u| u.gender == "F" && u.tee =="M"}.count 
+    @fl = users.select{|u| u.gender == "F" && u.tee =="L"}.count 
+    @fxl = users.select{|u| u.gender == "F" && u.tee =="XL"}.count 
+    @fxxl = users.select{|u| u.gender == "F" && u.tee =="XXL"}.count 
+    @intern_shuttle = users.select{|u| u.transport == 0}.count
+    @caltrain_shuttle = users.select{|u| u.transport == 1}.count
+    @no_shuttle = users.select{|u| u.transport == 2}.count
+    @users =   User.all
     render :layout => "secondary_layout"
   end
 
