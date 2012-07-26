@@ -96,22 +96,34 @@
   </div>
 <% end %>
 
-
+<%- members = [] %>
 <% @teams.each do |team| %>
   <div class='space_top'>
-    <h2> <%= team.name %> </h2>
+    <%- team_name = team.name.gsub(/\s/, '').downcase %>
+    <h2><a href='http://github.com/contributingcode/<%= team_name %>'><%= team.name %></a></h2>
     <ul style="list-style-type:none;">
+      <%- emails = [] %>
       <% team.team_members.each do |member| %>
-      <li><%= member.user_handle %></li>
+          <li><a href='#<%=member.user_handle%>'><%= member.user_handle %></a></li>
+          <%- emails <<  "#{member.user.name}<#{member.user.email}>" %>
       <% end %>
+      <%- members << emails %>
+      <h4>Email Team</h4>
+      <textarea><%=  emails.join(',') %></textarea>
     </ul>
   </div>
 <% end %>
 
+<h4>Email Members</h4>
+<textarea style="width: 100%; height: 400px">
+  <%= members.flatten.join(', ') %>
+</textarea>
+
+<h3>All Users</h3>
 <ul style="list-style-type:none;" class="space_top">
 <% @users.each do |user| %>
-    <li><%= user.name %>  :  <%= user.email %></li>
-<% end %> 
+    <li id='<%=user.handle%>'><%= user.name %>&lt;<%= user.email %>&gt;</li>
+<% end %>
 </ul>
 
 </div>

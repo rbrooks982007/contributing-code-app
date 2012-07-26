@@ -7,9 +7,9 @@ applications:
       info:
         mem: 256M
         description: Rails Application
-        exec: 
+        exec:
     url: ${name}.${target-base}
-    mem: 1G
+    mem: 256M
     instances: 1
     services:
       ccdb:
