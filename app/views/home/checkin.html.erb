@@ -1,0 +1,24 @@
+<div class="content_pos">
+<h1>Checkin</h1>
+<% @teams.each do |team| %>
+
+  <div class='space_top'>
+    <%- team_name = team.name.gsub(/\s/, '').downcase %>
+    <h2><%= team.name %></h2>
+    <div class="row-fluid">
+      <div class="span6">
+      <ul style="list-style-type:none;">
+        <% team.team_members.each do |member| %>
+            <li><a href='#<%=member.user_handle%>'><%= member.user.name %></a></li>
+        <% end %>
+      </ul>
+      </div>
+      <div class="span6">
+        <a href="/team/checkin/<%=team.id%>" class="btn">checkin</a>
+      </div>
+    </div>
+  </div>
+  
+<% end %>
+
+</div>

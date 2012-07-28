@@ -1,0 +1,27 @@
+<div class="content_pos">
+<h1>Final submissions</h1>
+<% @teams.each do |team| %>
+
+  <div class='space_top'>
+    <hr>
+    <div class="row-fluid">
+      <div class="span3">
+        <%- team_name = team.name.gsub(/\s/, '').downcase %>
+        <h1><%= team.name %></h1>
+      </div>
+      <div class="span3">
+        <a href="<%=team.repo%>" target="_blank">GitHub repo </a>
+      </div>
+      <div class="span3">
+        <a href="<%=team.site%>" target="_blank">Site</a>
+      </div>
+    </div>
+    <ul style="list-style-type:none;">
+      <% team.team_members.each do |member| %>
+        <li><a href='<%=member.user_handle%>' target="_blank"><%= member.user.name %></a></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+</div>

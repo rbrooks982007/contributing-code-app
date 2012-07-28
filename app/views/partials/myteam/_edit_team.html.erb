@@ -1,5 +1,3 @@
-
-
 <div class="control-group">
   <%= label_tag :"Team Name", nil, :class => "control-label" %>
   <%= @my_team.name %>
@@ -9,6 +7,21 @@
   <%= label_tag :"Team Description", nil, :class => "control-label"%>
   <div class="controls">
   <%= text_area_tag(:desc, @my_team.desc, :class => " input-xlarge team_data",  :"data-rules" => "max_length[80]", :"data-name" =>"TeamDesc", :id=>"TeamDesc" ) %>
+    <p class="help-block"></p>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= label_tag :"GitHub Repo Link", nil, :class => "control-label" %>
+  <div class="controls">
+    <%= text_field_tag(:repo, @my_team.repo, :class => "input-xlarge team_data ", "placeholder" => "Github repo url") %>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= label_tag :"Website Link", nil, :class => "control-label" %>
+  <div class="controls">
+    <%= text_field_tag(:site, @my_team.site, :class => "input-xlarge team_data","placeholder" => "Website url") %>
     <p class="help-block"></p>
   </div>
 </div>

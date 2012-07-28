@@ -31,6 +31,9 @@ Tumblrtv::Application.routes.draw do
 
   #Admin 
   match '/admin/' =>'home#admin' 
+  match '/checkin/' =>'home#checkin' 
+  match '/team/checkin/:id' =>'teams#checkin'
+  match '/judges/' =>'home#judges' 
   match '/announcement/' =>'home#announcement' 
 
   #FAQ

@@ -38,6 +38,8 @@ class TeamsController < ApplicationController
     render :json => {:err => "present", :data => nil} and return if team.blank?
     team.image = params[:image] if params[:image].present?
     team.desc = params[:desc]
+    team.repo = params[:repo] if params[:repo].present?
+    team.site = params[:site] if params[:site].present?
     # Team.update(team.id,:name=> params[:name],:desc=>params[:desc]) 
     if team.save 
       # team.update_attribute("desc",params[:desc])
@@ -64,5 +66,19 @@ class TeamsController < ApplicationController
     team.destroy
     render :json => {:err => nil, :data => nil} and return 
   end 
+
+
+  # Only by admins
+  def checkin
+    admins = [2,45]
+    redirect_to "/" and return if current_user.nil? or !admins.include?(current_user.id)
+    team = Team.find_by_id(params[:id])
+    team.checkin = true
+    if team.save 
+      redirect_to "/checkin"      
+    else 
+      redirect_to "/"
+    end 
+  end
   
 end

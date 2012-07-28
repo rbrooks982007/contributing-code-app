@@ -97,4 +97,18 @@ class HomeController < ApplicationController
     redirect_to "/admin/"
   end 
 
+  def checkin
+    admins = [2,45]
+    redirect_to "/" and return if current_user.nil? or !admins.include?(current_user.id)
+    @teams = Team.where(:checkin=>0).order("name")
+    render :layout => "secondary_layout"
+  end 
+
+  def judges 
+    admins = [2,45]
+    redirect_to "/" and return if current_user.nil? or !admins.include?(current_user.id)
+    @teams = Team.where(:checkin=>1).order("name")
+    render :layout => "secondary_layout"
+  end 
+
 end
