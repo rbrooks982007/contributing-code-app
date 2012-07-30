@@ -111,4 +111,8 @@ class HomeController < ApplicationController
     render :layout => "secondary_layout"
   end 
 
+  def results
+    render :layout => "secondary_layout"
+  end 
+
 end
