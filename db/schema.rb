@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120727215854) do
+ActiveRecord::Schema.define(:version => 20120801213548) do
 
   create_table "add_requests", :force => true do |t|
     t.integer  "user_id"
@@ -49,6 +49,11 @@ ActiveRecord::Schema.define(:version => 20120727215854) do
     t.string   "repo"
     t.string   "site"
     t.boolean  "checkin",      :default => false
+    t.integer  "rank"
+    t.text     "app_desc"
+    t.string   "tech"
+    t.string   "snapshot"
+    t.string   "title"
   end
 
   create_table "users", :force => true do |t|
@@ -62,6 +67,13 @@ ActiveRecord::Schema.define(:version => 20120727215854) do
     t.string   "tee"
     t.string   "gender"
     t.integer  "transport"
+  end
+
+  create_table "winners", :force => true do |t|
+    t.string   "pic"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.text     "image"
   end
 
 end

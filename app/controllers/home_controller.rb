@@ -112,7 +112,18 @@ class HomeController < ApplicationController
   end 
 
   def results
-    render :layout => "secondary_layout"
+    @teams = Team.where("rank > ?",0).index_by(&:rank)
+    render :layout => false
+  end 
+
+  def winner 
+    if  ((1..9) === params[:id].to_f) 
+      @team = Team.find_by_rank(params[:id])
+      @winner = Winner.find_by_id(@team.rank)
+      render :layout => false
+    else
+      redirect_to "/" 
+    end 
   end 
 
 end

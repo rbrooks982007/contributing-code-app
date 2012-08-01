@@ -201,12 +201,24 @@ h1, .hero-unit h1 {
     border: solid 6px white;
 }
 
+.winner-avatar {
+    width: 119px;
+    height: 119px;
+}
+
 .avatar img {
     margin-left: 20px;
 }
 
 .medium-avatar {
     width: 100px;
+    height :100px;
+    border: solid 6px white;
+}
+
+.prize-avatar {
+    width: 120px;
+    height :100px;
     border: solid 6px white;
 }
 
@@ -312,6 +324,13 @@ h1, .hero-unit h1 {
 .blue {
   color: #3d88f3;
 }
+.maroon {
+  color: #0F0608;
+}
+.maroon2 {
+  color: #883B3B;
+}
+
 
 
 .faq_pos{
