@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html prefix="og: http://ogp.me/ns#">
 <head>
 	<meta property="og:title" content="Contributingcode" />
 	<meta property="og:type" content="non_profit" />
 	<meta property="og:url" content=<%= @team.site %> />
 	<meta property="og:image" content="http://contributingcode.cloudfoundry.com/assets/logo-ccf33e01698d17b45042574587b79986.png" />
+  <meta property="og:description" content="#ContributingCode Winner" />
 	<meta property="og:site_name" content="#contributingcode" />
   <link rel="image_src" 
       type="image/jpeg" 
@@ -24,10 +25,12 @@
     <div class="navbar-inner">
       <div class="container">
         <a class="brand" href="/"><img src="<%= image_path 'logo_mini_+vmware.png' %>"></a>
+        <div class="pull-right">
+        <a href="http://contributingcode.cloudfoundry.com/results">Results page</a>
+      </div>
       </div>
     </div>
-
-    <a href=<%= @team.repo %> target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    
   </div>
   <div class="container">
     <div class="row">
@@ -35,32 +38,35 @@
         <div class="content_pos">
           <div class="row-fluid space_top">
             <div class="span4">
-              <div style="width:100px;height:120px;position:relative;">
-
-              <div style='width:100px;height:120px;position:relative;'>
-                   <img src=<%= @team.image_url %> class='prize-avatar'>
-                    <%= @winner.image.html_safe %>
-              </div>
+              <div style='width:200px;height:200px;position:relative;'>
+                   <img src=<%= @team.image_url %> class='big-avatar'>
               </div>
             </div>
             <div class="span8">
-              <h1 class="maroon"><%=@team.name%></h1>
-              <h3>
+              <div class="row-fluid">
+                <div class="span2"></div>
+                <div class="span2"> <%= @winner.image.html_safe %></div>
+                <div class="span8"><h1 class="maroon" style="padding-top:10px;"><%=@team.name%></h1></div> 
+              </div>
+              <h3 class="space_top">
                 <%= @team.app_desc.html_safe %>
               </h3>
             </div>
           </div>
-          <div class="row-fluid space_top">
-            <div class="span4">
+          <div class="row-fluid ">
+            <div class="span6">
               
             </div>
-            <div class="span8">
-              App url : <a href="<%=@team.site%>" target="_blank"><%=@team.site%></a>
+            <div class="span2">
+              <a href="<%=@team.site%>" class='btn btn-large' target="_blank">Visit App</a>
+            </div>
+            <div class="span3">
+              <a href="<%=@team.repo%>" class='btn btn-large' target="_blank">Fork on GitHub</a>
             </div>
           </div>
           <div class="row-fluid">
             <div class="span3">
-              <h2 class="space_top">Members</h2>
+              <h2 class="space_top">Team</h2>
             <% @team.team_members.each do |member| %>
               <img class='small-avatar' style="margin-top: 30px;" src="<%= member.user.avatar %>">
               <a href='<%= get_url(member.user_handle) %>'><%= member.user.name %></a>
@@ -69,7 +75,7 @@
             </div>
             <div class="span9">
               <div style="padding:40px 40px 40px 80px">
-              <iframe src="http://presvo.com/5c09ec0#/step-1" width="600" height="500" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen> </iframe> 
+              <iframe src="http://presvo.com/5c09ec0#/step-1" width="600" height="500" style="border:none;"> </iframe> 
               <!-- <img src="/assets/team<%=@team.rank%>.png"> -->
             </div>
             </div>

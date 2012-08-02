@@ -27,114 +27,131 @@
     <div class="row">
       <div class="span12" >
         <div class="content_pos">
-          <h2 class="space_top maroon">Cloud Foundry Grand prize winners</h2>
-          <br>
+          <div class="row-fluid">
+            <div class="span1"> <img src="/assets/prize_First.png" style="width:70px;"></div>
+            <div class="span11"><h2 class="maroon" style="padding-top:10px">Cloud Foundry Grand Prize Winners</h2></div> 
+          </div>
           <div class="row-fluid space_top" >
             <div class="span4 space_top">
-            	<div style="width:100px;height:120px;position:relative;left:70px">
-          			<img src=<%=@teams[1].image_url%> class="prize-avatar">
-         				<img src="/assets/prize_First.png" style="width:65px;position:absolute;top:-40px;left:24px;">
+            	<div style="width:200px;height:200px;position:relative;left:70px">
+                <a href="/winner/1">
+          			<img src=<%=@teams[1].image_url%> class="big-avatar">
+              </a>
          			</div>
             	<h2 class="maroon2"><%=@teams[1].name%></h2>
               <p  style="padding:0px 15px 0px 0px">
                 <%= @teams[1].app_desc.html_safe %>
-                <a href="/winner/1" target="_blank">Read more.</a>
+                <a href="/winner/1" >Read more.</a>
               </p>
             </div>
             <div class="span4 space_top" >
-            	<div style="width:100px;height:120px;position:relative;left:70px">
-          			<img src=<%=@teams[2].image_url%> class="prize-avatar">
-         				<img src="/assets/prize_Second.png" style="width:65px;position:absolute;top:-40px;left:24px;">
+            	<div style="width:200px;height:200px;position:relative;left:70px">
+                <a href="/winner/2">
+          			<img src=<%=@teams[2].image_url%> class="big-avatar">
+         				</a>
          			</div>
               <h2 class="maroon2"><%=@teams[2].name%></h2>
               <p style="padding:0px 15px 0px 0px">
                 <%= @teams[2].app_desc.html_safe %>
-                <a href="/winner/2" target="_blank">Read more.</a>
+                <a href="/winner/2" >Read more.</a>
               </p>
             </div>
             <div class="span4 space_top" >
-            	<div style="width:100px;height:120px;position:relative;left:70px;background:white;">
-          			<img src=<%=@teams[3].image_url%> class="prize-avatar">
-         				<img src="/assets/prize_Third.png" style="width:65px;position:absolute;top:-40px;left:24px;">
-         			</div>
+            	<div style="width:200px;height:200px;position:relative;left:70px;">
+                <a href="/winner/3">
+                <img src="/grid/team/image/53/noun_project_2506.svg" class="big-avatar" style="background:white;">
+                </a>
+              </div>
               <h2 class="maroon2"><%=@teams[3].name%></h2>
               <p style="padding:0px 15px 0px 0px">
                <%= @teams[3].app_desc.html_safe %>
-               <a href="/winner/3" target="_blank">Read more.</a>
+               <a href="/winner/3">Read more.</a>
               </p>
             </div>
           </div>
           <hr>
-          <h2 class="space_top maroon">GitHub winners</h2>
+          <div class="row-fluid">
+            <div class="span1"> <img src="/assets/Octocat.png" style="width:70px;"></div>
+            <div class="span11"><h2 class="maroon" style="padding-top:10px">GitHub Winners</h2></div> 
+          </div>
           <div class="row-fluid space_top" >
             <div class="span4 space_top">
-              <div style="width:100px;height:120px;position:relative;left:70px">
-                <img src=<%=@teams[4].image_url%> class="prize-avatar">
-                <img src="/assets/Octocat.png" style="width:60px;position:absolute;top:-55px;left:20px;">
+              <div style="width:200px;height:200px;position:relative;left:70px;">
+                <a href="/winner/4">
+                <img src=<%=@teams[4].image_url%> class="big-avatar">
+                </a>
               </div>
               <h2 class="maroon2"><%=@teams[4].name%></h2>
               <p  style="padding:0px 15px 0px 0px">
                 <%= @teams[4].app_desc.html_safe %>
-                <a href="/winner/4" target="_blank">Read more.</a>
+                <a href="/winner/4" >Read more.</a>
               </p>
             </div>
             <div class="span4 space_top" >
-              <div style="width:100px;height:120px;position:relative;left:70px">
-                <img src=<%=@teams[5].image_url%> class="prize-avatar">
-                <img src="/assets/Octocat.png" style="width:60px;position:absolute;top:-55px;left:20px;">
+              <div style="width:200px;height:200px;position:relative;left:70px;">
+                <a href="/winner/5">
+                <img src=<%=@teams[5].image_url%> class="big-avatar">
+                </a>
               </div>
               <h2 class="maroon2"><%=@teams[5].name%></h2>
               <p style="padding:0px 15px 0px 0px">
                 <%= @teams[5].app_desc.html_safe %>
-                <a href="/winner/5" target="_blank">Read more.</a>
+                <a href="/winner/5" >Read more.</a>
               </p>
             </div>
             <div class="span4 space_top" >
-              <div style="width:100px;height:120px;position:relative;left:70px">
-                <img src=<%=@teams[6].image_url%> class="prize-avatar">
-                <img src="/assets/Octocat.png" style="width:60px;position:absolute;top:-55px;left:20px;">
+              <div style="width:200px;height:200px;position:relative;left:70px;">
+                <a href="/winner/6">
+                <img src=<%=@teams[6].image_url%> class="big-avatar">
+              </a>
               </div>
               <h2 class="maroon2"><%=@teams[6].name%></h2>
               <p  style="padding:0px 15px 0px 0px">
                <%= @teams[6].app_desc.html_safe %>
-               <a href="/winner/6" target="_blank">Read more.</a>
+               <a href="/winner/6" >Read more.</a>
               </p>
             </div>
           </div>
           <hr>
-          <h2 class="space_top maroon">Preshavedyak winners</h2>
+          <div class="row-fluid">
+            <div class="span1"> <img src="/assets/yak.png" style="width:70px;height:45px"></div>
+            <div class="span11"><h2 class="maroon" style="padding-top:10px">Preshavedyak Winners</h2></div> 
+          </div>
           <div class="row-fluid space_top" >
             <div class="span4 space_top">
-              <div style="width:100px;height:120px;position:relative;left:70px">
-                <img src=<%=@teams[7].image_url%> class="prize-avatar">
-                <img src="/assets/yak.png" style="width:70px;position:absolute;top:-45px;left:13px;">
+              <div style="width:200px;height:200px;position:relative;left:70px;">
+                <a href="/winner/7">
+                  <img src=<%=@teams[7].image_url%> class="big-avatar">
+                </a>
               </div>
               <h2 class="maroon2"><%=@teams[7].name%></h2>
               <p  style="padding:0px 15px 0px 0px">
               <%= @teams[7].app_desc.html_safe %>
-              <a href="/winner/7" target="_blank">Read more.</a>
+              <a href="/winner/7" >Read more.</a>
               </p>
             </div>
             <div class="span4 space_top" >
-              <div style="width:100px;height:120px;position:relative;left:70px">
-                <img src=<%=@teams[8].image_url%> class="prize-avatar">
-                <img src="/assets/yak.png" style="width:70px;position:absolute;top:-45px;left:13px;">
+              <div style="width:200px;height:200px;position:relative;left:70px;">
+                <a href="/winner/8">
+                  <img src=<%=@teams[8].image_url%> class="big-avatar">
+                </a>
               </div>
               <h2 class="maroon2"><%=@teams[8].name%></h2>
               <p style="padding:0px 15px 0px 0px">
                 <%= @teams[8].app_desc.html_safe %> 
-                <a href="/winner/8" target="_blank">Read more.</a>
+                <a href="/winner/8">Read more.</a>
               </p>
             </div>
             <div class="span4 space_top" >
-              <div style="width:100px;height:120px;position:relative;left:70px">
-                <img src=<%=@teams[9].image_url%> class="prize-avatar">
-                <img src="/assets/yak.png" style="width:70px;position:absolute;top:-45px;left:13px;">
+              <div style="width:200px;height:200px;position:relative;left:70px;">
+                <a href="/winner/9">
+                  <img src=<%=@teams[9].image_url%> class="big-avatar">
+                </a>
               </div>
               <h2 class="maroon2"><%=@teams[9].name%></h2>
               <p style="padding:0px 15px 0px 0px">
                 <%= @teams[9].app_desc.html_safe %>
-                <a href="/winner/9" target="_blank">Read more.</a>
+                <a href="/winner/9">Read more.</a>
               </p>
             </div>
           </div>
